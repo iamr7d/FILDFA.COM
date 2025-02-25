@@ -191,16 +191,6 @@ body {
     background: url('data:image/svg+xml,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="0.25"/></svg>') repeat;
     opacity: 0.3;
     pointer-events: none;
-    animation: fadeIn 2s ease-out forwards;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 0.3;
-    }
 }
 
 .hero-content {
@@ -209,121 +199,6 @@ body {
     text-align: center;
     position: relative;
     z-index: 1;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: slideUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-@keyframes slideUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.word-animation {
-    display: inline-block;
-    font-size: inherit;
-    color: #fff;
-    position: relative;
-}
-
-.word-animation::after {
-    position: absolute;
-    content: "Storytelling";
-    animation: cycleWords 15s infinite;
-    left: 0;
-    top: 0;
-    white-space: nowrap;
-}
-
-@keyframes cycleWords {
-    0%, 2.5% { content: "Storytelling"; }
-    2.5%, 5% { content: "Cinematography"; }
-    5%, 7.5% { content: "Production"; }
-    7.5%, 10% { content: "Direction"; }
-    10%, 12.5% { content: "Screenwriting"; }
-    12.5%, 15% { content: "Visual Effects"; }
-    15%, 17.5% { content: "Sound Design"; }
-    17.5%, 20% { content: "Color Grading"; }
-    20%, 22.5% { content: "Set Design"; }
-    22.5%, 25% { content: "Film Editing"; }
-    25%, 27.5% { content: "Storyboarding"; }
-    27.5%, 30% { content: "Scene Setup"; }
-    30%, 32.5% { content: "Shot Planning"; }
-    32.5%, 35% { content: "Post Production"; }
-    35%, 37.5% { content: "Motion Design"; }
-    37.5%, 40% { content: "Film Scoring"; }
-    40%, 42.5% { content: "Script Writing"; }
-    42.5%, 45% { content: "Art Direction"; }
-    45%, 47.5% { content: "Film Lighting"; }
-    47.5%, 50% { content: "Camera Work"; }
-    50%, 52.5% { content: "Sound Mixing"; }
-    52.5%, 55% { content: "Film Acting"; }
-    55%, 57.5% { content: "Film Making"; }
-    57.5%, 60% { content: "Film Magic"; }
-    60%, 62.5% { content: "Special Effects"; }
-    62.5%, 65% { content: "Film Compositing"; }
-    65%, 67.5% { content: "Digital Cinema"; }
-    67.5%, 70% { content: "Film Innovation"; }
-    70%, 72.5% { content: "Movie Making"; }
-    72.5%, 75% { content: "Film Production"; }
-    75%, 77.5% { content: "Film Technology"; }
-    77.5%, 80% { content: "Film Artistry"; }
-    80%, 82.5% { content: "Film Directing"; }
-    82.5%, 85% { content: "Film Industry"; }
-    85%, 87.5% { content: "Film Animation"; }
-    87.5%, 90% { content: "Film Revolution"; }
-    90%, 92.5% { content: "Film Excellence"; }
-    92.5%, 95% { content: "Film Innovation"; }
-    95%, 97.5% { content: "Film Future"; }
-    97.5%, 100% { content: "Storytelling"; }
-}
-
-.word-animation {
-    animation: cycleFonts 2s infinite;
-}
-
-@keyframes cycleFonts {
-    0%, 20% { font-family: 'Gotham Ultra', sans-serif; }
-    20%, 40% { font-family: 'Helvetica Neue', sans-serif; }
-    40%, 60% { font-family: 'Futura', sans-serif; }
-    60%, 80% { font-family: 'Avenir Next', sans-serif; }
-    80%, 100% { font-family: 'Gotham Ultra', sans-serif; }
-}
-
-/* Ensure text is visible on all devices */
-@media screen and (max-width: 768px) {
-    .word-animation {
-        font-size: 0.9em;
-        line-height: 1.4;
-    }
-    
-    .word-animation::after {
-        width: 100%;
-    }
-}
-
-.beta-badge {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.75rem 1.5rem;
-    background: rgba(110, 86, 207, 0.1);
-    border: 1px solid rgba(110, 86, 207, 0.2);
-    border-radius: 100px;
-    color: var(--text);
-    text-decoration: none;
-    font-size: 0.9375rem;
-    font-weight: 500;
-    margin-bottom: 3rem;
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    backdrop-filter: blur(8px);
-}
-
-.beta-badge:hover {
-    background: rgba(110, 86, 207, 0.15);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 32px rgba(110, 86, 207, 0.2);
 }
 
 h1 {
@@ -335,14 +210,19 @@ h1 {
     -webkit-text-fill-color: transparent;
     font-weight: 800;
     letter-spacing: -0.02em;
+    text-align: center;
+}
+
+h1 em {
+    font-style: normal;
 }
 
 .hero p {
     font-size: 1.25rem;
     color: var(--text-secondary);
-    max-width: 600px;
+    text-align: center;
+    max-width: 800px;
     margin: 0 auto;
-    line-height: 1.7;
 }
 
 .cta-button {
@@ -547,12 +427,6 @@ h1 {
     line-height: 1.6;
 }
 
-.tech-card p {
-    color: var(--text-secondary);
-    font-size: 0.9375rem;
-    line-height: 1.6;
-}
-
 /* About Section */
 .about,
 .about-content,
@@ -715,14 +589,15 @@ h1 {
     }
 }
 
-/* Ensure text animations work on all devices */
+/* Ensure text is visible on all devices */
 @media screen and (max-width: 768px) {
-    .animate-text {
+    .word-animation {
         font-size: 0.9em;
+        line-height: 1.4;
     }
     
-    .animate-text::after {
-        font-size: inherit;
+    .word-animation::after {
+        width: 100%;
     }
 }
 
@@ -770,4 +645,59 @@ html {
 /* Section spacing */
 section {
     scroll-margin-top: 80px;
+}
+
+.animate-text {
+    display: block;
+    height: 1.2em;
+    font-size: 5rem;
+    line-height: 1.1;
+    color: #fff;
+    font-weight: 800;
+    background: linear-gradient(to right, #fff, rgba(255, 255, 255, 0.8));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.animate-text::before {
+    content: "Storytelling";
+    animation: words 8s infinite;
+    animation-timing-function: steps(1, end);
+}
+
+@keyframes words {
+    0% { content: "Storytelling"; }
+    5% { content: "Cinematography"; }
+    10% { content: "Production"; }
+    15% { content: "Direction"; }
+    20% { content: "Visual Effects"; }
+    25% { content: "Sound Design"; }
+    30% { content: "Color Grading"; }
+    35% { content: "Film Editing"; }
+    40% { content: "Motion Design"; }
+    45% { content: "Film Scoring"; }
+    50% { content: "Art Direction"; }
+    55% { content: "Film Lighting"; }
+    60% { content: "Camera Work"; }
+    65% { content: "Film Making"; }
+    70% { content: "Film Magic"; }
+    75% { content: "Digital Cinema"; }
+    80% { content: "Film Innovation"; }
+    85% { content: "Film Excellence"; }
+    90% { content: "Film Future"; }
+    95% { content: "Film Revolution"; }
+    100% { content: "Storytelling"; }
+}
+
+/* Responsive text sizes */
+@media screen and (max-width: 768px) {
+    .animate-text {
+        font-size: 3rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .animate-text {
+        font-size: 2rem;
+    }
 }

@@ -10,7 +10,6 @@ class WaitlistHandler {
         this.submitButton = document.querySelector('.waitlist-button');
         this.successMessage = document.querySelector('.waitlist-success');
         this.errorMessage = document.querySelector('.waitlist-error');
-        this.countElement = document.querySelector('.waitlist-count');
         
         this.initialize();
     }
@@ -27,25 +26,7 @@ class WaitlistHandler {
         this.professionInput?.addEventListener('change', this.handleInput.bind(this));
         this.sourceInput?.addEventListener('change', this.handleInput.bind(this));
         
-        // Get current waitlist count
-        this.updateWaitlistCount();
-        
         console.log('✅ Waitlist form initialized');
-    }
-
-    async updateWaitlistCount() {
-        try {
-            const response = await databases.listDocuments(
-                DATABASE_ID,
-                COLLECTION_ID
-            );
-            const count = response.total;
-            if (this.countElement) {
-                this.countElement.textContent = count.toLocaleString();
-            }
-        } catch (error) {
-            console.error('Error fetching waitlist count:', error);
-        }
     }
 
     async handleSubmit(e) {
@@ -97,36 +78,12 @@ class WaitlistHandler {
 
             this.showSuccess();
             this.form.reset();
-            
-            // Update counter with animation
-            await this.updateWaitlistCount();
-            if (this.countElement) {
-                this.countElement.classList.add('pulse');
-                setTimeout(() => this.countElement.classList.remove('pulse'), 500);
-            }
-
         } catch (error) {
-            console.error('Error submitting to waitlist:', error);
-            if (error.code === 409) {
-                this.showError('This email is already on the waitlist!');
-            } else {
-                this.showError('Unable to join waitlist. Please try again later.');
-            }
+            console.error('Error creating waitlist entry:', error);
+            this.showError('Failed to join waitlist. Please try again.');
+        } finally {
+            this.setLoading(false);
         }
-
-        this.setLoading(false);
-    }
-
-    handleInput() {
-        this.hideMessages();
-        this.emailInput.classList.remove('error');
-        this.nameInput.classList.remove('error');
-        this.professionInput.classList.remove('error');
-        this.sourceInput.classList.remove('error');
-    }
-
-    validateEmail(email) {
-        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
     }
 
     setLoading(isLoading) {
@@ -141,12 +98,14 @@ class WaitlistHandler {
                 `;
             } else {
                 this.submitButton.disabled = false;
-                this.submitButton.innerHTML = `
-                    Join Waitlist
-                    <span class="waitlist-count">(${this.countElement?.textContent || '0'})</span>
-                `;
+                this.submitButton.innerHTML = 'Join Waitlist';
             }
         }
+    }
+
+    validateEmail(email) {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(email);
     }
 
     showSuccess() {
@@ -176,9 +135,12 @@ class WaitlistHandler {
         }
     }
 
-    hideMessages() {
-        this.successMessage.classList.remove('show');
-        this.errorMessage.classList.remove('show');
+    handleInput() {
+        // Clear error message when user starts typing
+        if (this.errorMessage) {
+            this.errorMessage.style.display = 'none';
+            this.errorMessage.classList.remove('show');
+        }
     }
 }
 

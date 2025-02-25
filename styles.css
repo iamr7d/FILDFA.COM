@@ -123,7 +123,7 @@ body {
     height: 2px;
     bottom: 0;
     left: 0;
-    background: linear-gradient(to right, var(--primary), rgba(110, 86, 207, 0.5));
+    background: linear-gradient(to right, var(--primary), transparent);
     transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     border-radius: 2px;
 }
@@ -361,91 +361,136 @@ h1::before {
 
 .animate-fonts {
     display: inline-block;
-    animation: textChange 24s infinite;
+    animation: textChange 15s infinite;
     animation-timing-function: steps(1, end);
 }
 
 @keyframes textChange {
-    0%, 4% {
+    0%, 2.5% {
         content: "Storytelling";
     }
-    4%, 8% {
+    2.5%, 5% {
         content: "Cinematography";
     }
-    8%, 12% {
+    5%, 7.5% {
         content: "Production";
     }
-    12%, 16% {
+    7.5%, 10% {
         content: "Direction";
     }
-    16%, 20% {
+    10%, 12.5% {
         content: "Screenwriting";
     }
-    20%, 24% {
+    12.5%, 15% {
         content: "Visual Effects";
     }
-    24%, 28% {
+    15%, 17.5% {
         content: "Sound Design";
     }
-    28%, 32% {
+    17.5%, 20% {
         content: "Color Grading";
     }
-    32%, 36% {
+    20%, 22.5% {
         content: "Set Design";
     }
-    36%, 40% {
+    22.5%, 25% {
         content: "Film Editing";
     }
-    40%, 44% {
+    25%, 27.5% {
         content: "Storyboarding";
     }
-    44%, 48% {
+    27.5%, 30% {
         content: "Scene Setup";
     }
-    48%, 52% {
+    30%, 32.5% {
         content: "Shot Planning";
     }
-    52%, 56% {
+    32.5%, 35% {
         content: "Post Production";
     }
-    56%, 60% {
+    35%, 37.5% {
         content: "Motion Design";
     }
-    60%, 64% {
+    37.5%, 40% {
         content: "Film Scoring";
     }
-    64%, 68% {
+    40%, 42.5% {
         content: "Script Writing";
     }
-    68%, 72% {
+    42.5%, 45% {
         content: "Art Direction";
     }
-    72%, 76% {
+    45%, 47.5% {
         content: "Film Lighting";
     }
-    76%, 80% {
+    47.5%, 50% {
         content: "Camera Work";
     }
-    80%, 84% {
+    50%, 52.5% {
         content: "Sound Mixing";
     }
-    84%, 88% {
+    52.5%, 55% {
         content: "Film Acting";
     }
-    88%, 92% {
+    55%, 57.5% {
         content: "Film Making";
     }
-    92%, 96% {
+    57.5%, 60% {
         content: "Film Magic";
     }
-    96%, 100% {
+    60%, 62.5% {
+        content: "Special Effects";
+    }
+    62.5%, 65% {
+        content: "Film Compositing";
+    }
+    65%, 67.5% {
+        content: "Digital Cinema";
+    }
+    67.5%, 70% {
+        content: "Film Innovation";
+    }
+    70%, 72.5% {
+        content: "Movie Making";
+    }
+    72.5%, 75% {
+        content: "Film Production";
+    }
+    75%, 77.5% {
+        content: "Film Technology";
+    }
+    77.5%, 80% {
+        content: "Film Artistry";
+    }
+    80%, 82.5% {
+        content: "Film Directing";
+    }
+    82.5%, 85% {
+        content: "Film Industry";
+    }
+    85%, 87.5% {
+        content: "Film Animation";
+    }
+    87.5%, 90% {
+        content: "Film Revolution";
+    }
+    90%, 92.5% {
+        content: "Film Excellence";
+    }
+    92.5%, 95% {
+        content: "Film Innovation";
+    }
+    95%, 97.5% {
+        content: "Film Future";
+    }
+    97.5%, 100% {
         content: "Storytelling";
     }
 }
 
 .animate-fonts::before {
     content: attr(data-text);
-    animation: fontChange 2s infinite;
+    animation: fontChange 1.5s infinite;
     animation-timing-function: steps(1, end);
 }
 

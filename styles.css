@@ -158,27 +158,9 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 8rem 2rem 6rem;
     position: relative;
-    background: 
-        radial-gradient(circle at 0% 0%, var(--primary-glow) 0%, transparent 50%),
-        radial-gradient(circle at 100% 100%, var(--primary-glow) 0%, transparent 50%);
     overflow: hidden;
-}
-
-.hero::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: 
-        radial-gradient(circle at 20% 20%, rgba(110, 86, 207, 0.15) 0%, transparent 40%),
-        radial-gradient(circle at 80% 80%, rgba(110, 86, 207, 0.1) 0%, transparent 40%);
-    filter: blur(80px);
-    z-index: 0;
-    pointer-events: none;
+    padding: 2rem;
 }
 
 .hero::before {
@@ -194,11 +176,32 @@ body {
 }
 
 .hero-content {
-    max-width: 800px;
-    margin: 0 auto;
+    max-width: 1200px;
     text-align: center;
     position: relative;
     z-index: 1;
+}
+
+.beta-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.75rem 1.5rem;
+    background: rgba(110, 86, 207, 0.1);
+    border: 1px solid rgba(110, 86, 207, 0.2);
+    border-radius: 100px;
+    color: var(--text);
+    text-decoration: none;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    margin-bottom: 3rem;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    backdrop-filter: blur(8px);
+}
+
+.beta-badge:hover {
+    background: rgba(110, 86, 207, 0.15);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(110, 86, 207, 0.2);
 }
 
 h1 {
@@ -210,55 +213,34 @@ h1 {
     -webkit-text-fill-color: transparent;
     font-weight: 800;
     letter-spacing: -0.02em;
+}
+
+.animate-text {
+    display: block;
+    height: 1.2em;
+    position: relative;
+    font-size: 5rem;
+    margin-top: 0.5rem;
+}
+
+.animate-text::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
     text-align: center;
+    animation: changeText 5s linear infinite;
+    background: linear-gradient(to right, #fff, rgba(255, 255, 255, 0.8));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-h1 em {
-    font-style: normal;
-}
-
-.hero p {
-    font-size: 1.25rem;
-    color: var(--text-secondary);
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.cta-button {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.875rem 2rem;
-    border-radius: 12px;
-    font-weight: 600;
-    font-size: 1rem;
-    text-decoration: none;
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.cta-button.primary {
-    background: var(--primary);
-    color: var(--text);
-    box-shadow: 0 0 20px rgba(110, 86, 207, 0.2);
-}
-
-.cta-button.secondary {
-    background: rgba(255, 255, 255, 0.05);
-    color: var(--text);
-    border: 1px solid var(--glass-border);
-}
-
-.cta-button:hover {
-    transform: translateY(-2px);
-}
-
-.cta-button.primary:hover {
-    background: #7B61E3;
-    box-shadow: 0 0 30px rgba(110, 86, 207, 0.3);
-}
-
-.cta-button.secondary:hover {
-    background: rgba(255, 255, 255, 0.08);
+@keyframes changeText {
+    0%, 20% { content: "Storytelling"; }
+    20%, 40% { content: "Cinematography"; }
+    40%, 60% { content: "Visual Effects"; }
+    60%, 80% { content: "Film Making"; }
+    80%, 100% { content: "Digital Cinema"; }
 }
 
 /* Services Section */
@@ -647,56 +629,22 @@ section {
     scroll-margin-top: 80px;
 }
 
-.animate-text {
-    display: block;
-    height: 1.2em;
-    font-size: 5rem;
-    line-height: 1.1;
-    color: #fff;
-    font-weight: 800;
-    background: linear-gradient(to right, #fff, rgba(255, 255, 255, 0.8));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.animate-text::before {
-    content: "Storytelling";
-    animation: words 8s infinite;
-    animation-timing-function: steps(1, end);
-}
-
-@keyframes words {
-    0% { content: "Storytelling"; }
-    5% { content: "Cinematography"; }
-    10% { content: "Production"; }
-    15% { content: "Direction"; }
-    20% { content: "Visual Effects"; }
-    25% { content: "Sound Design"; }
-    30% { content: "Color Grading"; }
-    35% { content: "Film Editing"; }
-    40% { content: "Motion Design"; }
-    45% { content: "Film Scoring"; }
-    50% { content: "Art Direction"; }
-    55% { content: "Film Lighting"; }
-    60% { content: "Camera Work"; }
-    65% { content: "Film Making"; }
-    70% { content: "Film Magic"; }
-    75% { content: "Digital Cinema"; }
-    80% { content: "Film Innovation"; }
-    85% { content: "Film Excellence"; }
-    90% { content: "Film Future"; }
-    95% { content: "Film Revolution"; }
-    100% { content: "Storytelling"; }
-}
-
 /* Responsive text sizes */
 @media screen and (max-width: 768px) {
+    h1 {
+        font-size: 3.5rem;
+    }
+    
     .animate-text {
         font-size: 3rem;
     }
 }
 
 @media screen and (max-width: 480px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+    
     .animate-text {
         font-size: 2rem;
     }

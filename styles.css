@@ -361,6 +361,90 @@ h1::before {
 
 .animate-fonts {
     display: inline-block;
+    animation: textChange 24s infinite;
+    animation-timing-function: steps(1, end);
+}
+
+@keyframes textChange {
+    0%, 4% {
+        content: "Storytelling";
+    }
+    4%, 8% {
+        content: "Cinematography";
+    }
+    8%, 12% {
+        content: "Production";
+    }
+    12%, 16% {
+        content: "Direction";
+    }
+    16%, 20% {
+        content: "Screenwriting";
+    }
+    20%, 24% {
+        content: "Visual Effects";
+    }
+    24%, 28% {
+        content: "Sound Design";
+    }
+    28%, 32% {
+        content: "Color Grading";
+    }
+    32%, 36% {
+        content: "Set Design";
+    }
+    36%, 40% {
+        content: "Film Editing";
+    }
+    40%, 44% {
+        content: "Storyboarding";
+    }
+    44%, 48% {
+        content: "Scene Setup";
+    }
+    48%, 52% {
+        content: "Shot Planning";
+    }
+    52%, 56% {
+        content: "Post Production";
+    }
+    56%, 60% {
+        content: "Motion Design";
+    }
+    60%, 64% {
+        content: "Film Scoring";
+    }
+    64%, 68% {
+        content: "Script Writing";
+    }
+    68%, 72% {
+        content: "Art Direction";
+    }
+    72%, 76% {
+        content: "Film Lighting";
+    }
+    76%, 80% {
+        content: "Camera Work";
+    }
+    80%, 84% {
+        content: "Sound Mixing";
+    }
+    84%, 88% {
+        content: "Film Acting";
+    }
+    88%, 92% {
+        content: "Film Making";
+    }
+    92%, 96% {
+        content: "Film Magic";
+    }
+    96%, 100% {
+        content: "Storytelling";
+    }
+}
+
+.animate-fonts::before {
+    content: attr(data-text);
     animation: fontChange 2s infinite;
     animation-timing-function: steps(1, end);
 }

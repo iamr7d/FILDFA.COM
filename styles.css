@@ -259,9 +259,12 @@ h1 {
     position: relative;
 }
 
-.animate-text::after {
-    content: "";
+.animate-text::before {
+    content: "Storytelling";
     animation: words 15s linear infinite;
+    position: absolute;
+    left: 0;
+    top: 0;
 }
 
 @keyframes words {
@@ -310,6 +313,9 @@ h1 {
 .animate-text {
     font-family: var(--font-primary);
     animation: fonts 1s linear infinite;
+    min-height: 1.2em;
+    display: inline-block;
+    color: white;
 }
 
 @keyframes fonts {
@@ -318,25 +324,6 @@ h1 {
     40%, 60% { font-family: 'Futura', sans-serif; }
     60%, 80% { font-family: 'Avenir Next', sans-serif; }
     80%, 100% { font-family: 'Gotham Ultra', sans-serif; }
-}
-
-.animate-text::before {
-    content: attr(data-text);
-    animation: fontChange 1.5s infinite;
-    animation-timing-function: steps(1, end);
-}
-
-@keyframes fontChange {
-    0%, 10% { font-family: 'Gotham Ultra', sans-serif; }
-    10%, 20% { font-family: 'Helvetica Neue', sans-serif; }
-    20%, 30% { font-family: 'Futura', sans-serif; }
-    30%, 40% { font-family: 'Avenir Next', sans-serif; }
-    40%, 50% { font-family: 'Roboto', sans-serif; }
-    50%, 60% { font-family: 'Playfair Display', serif; }
-    60%, 70% { font-family: 'SF Pro Display', sans-serif; }
-    70%, 80% { font-family: 'Montserrat', sans-serif; }
-    80%, 90% { font-family: 'Inter', sans-serif; }
-    90%, 100% { font-family: 'Gotham Ultra', sans-serif; }
 }
 
 .hero p {

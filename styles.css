@@ -1957,3 +1957,127 @@ select.waitlist-source-input option {
         gap: 0.75rem;
     }
 }
+
+/* Responsive Design Improvements */
+@media (max-width: 1200px) {
+    .hero-content {
+        max-width: 90%;
+        padding: 0 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-content {
+        padding: 0 1.5rem;
+    }
+
+    .input-group {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .waitlist-form {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .waitlist-input,
+    .waitlist-name-input,
+    .waitlist-profession-input,
+    .waitlist-source-input {
+        width: 100%;
+        min-width: 100%;
+    }
+
+    h1 {
+        font-size: clamp(2rem, 5vw, 3rem);
+    }
+
+    .hero-description {
+        font-size: clamp(1rem, 3vw, 1.25rem);
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content {
+        padding: 0 1rem;
+    }
+
+    .waitlist-button {
+        padding: 0.75rem 1rem;
+        font-size: 0.875rem;
+    }
+
+    .input-group {
+        margin-bottom: 0.75rem;
+    }
+
+    .waitlist-input,
+    .waitlist-name-input,
+    .waitlist-profession-input,
+    .waitlist-source-input {
+        padding: 0.625rem 0.875rem;
+        font-size: 0.875rem;
+    }
+}
+
+/* Device-specific optimizations */
+@media (hover: none) {
+    /* Touch device optimizations */
+    .waitlist-button,
+    select.waitlist-profession-input,
+    select.waitlist-source-input {
+        cursor: default;
+    }
+
+    .waitlist-input,
+    .waitlist-name-input,
+    .waitlist-profession-input,
+    .waitlist-source-input {
+        font-size: 16px; /* Prevent iOS zoom on focus */
+    }
+}
+
+/* High-DPI screens */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .waitlist-form {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+}
+
+/* Landscape mode */
+@media (max-height: 600px) and (orientation: landscape) {
+    .hero-content {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+
+    .input-group {
+        flex-direction: row;
+    }
+}
+
+/* Ensure form elements are easily tappable on mobile */
+@media (pointer: coarse) {
+    .waitlist-button,
+    .waitlist-input,
+    .waitlist-name-input,
+    select.waitlist-profession-input,
+    select.waitlist-source-input {
+        min-height: 44px; /* iOS minimum tappable area */
+    }
+}
+
+/* Prevent content overflow */
+.waitlist-container {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* Maintain aspect ratio for floating images */
+.float-img {
+    max-width: min(100%, 300px);
+    height: auto;
+    object-fit: contain;
+}

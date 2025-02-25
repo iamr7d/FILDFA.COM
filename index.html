@@ -1,342 +1,401 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FILMDA - AI-Powered Filmmaking Platform</title>
-    
-    <!-- Open Graph Meta Tags for Social Sharing -->
-    <meta property="og:title" content="FILMDA - AI-Powered Filmmaking Platform" />
-    <meta property="og:description" content="An AI-powered platform revolutionizing film production with smart automation and creative tools." />
-    <meta property="og:image" content="https://filmda.netlify.app/og-image.jpg" />
-    <meta property="og:url" content="https://filmda.netlify.app" />
-    <meta property="og:type" content="website" />
-    
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="FILMDA - AI-Powered Filmmaking Platform" />
-    <meta name="twitter:description" content="An AI-powered platform revolutionizing film production with smart automation and creative tools." />
-    <meta name="twitter:image" content="https://filmda.netlify.app/og-image.jpg" />
-    
+    <meta name="description" content="FILMDA - Redefining Digital Cinema with AI-powered filmmaking solutions">
+    <meta name="keywords" content="AI filmmaking, digital cinema, smart clapper, film production, AI automation">
+    <title>FILMDA - Redefining Digital Cinema</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="fonts/fonts.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    <style>
+        /* Ensure text is black in light mode */
+        [data-theme="light"] .filmda-text {
+            color: rgb(0, 0, 0) !important;
+        }
+        
+        [data-theme="light"] .redefining-text {
+            color: rgb(0, 0, 0) !important;
+        }
+        
+        [data-theme="light"] p,
+        [data-theme="light"] .description {
+            color: rgba(0, 0, 0, 0.85) !important;
+        }
+        
+        /* Light mode text colors */
+        [data-theme="light"] .logo {
+            color: #000000 !important;
+        }
+        
+        [data-theme="light"] .redefining-text {
+            background: linear-gradient(45deg, #1a1a1a, #333333);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        [data-theme="light"] .animate-text {
+            background: linear-gradient(45deg, #1a1a1a, #333333);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        /* Logo styles */
+        .logo {
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+        
+        [data-theme="light"] .logo {
+            color: #000000 !important;
+        }
+        
+        [data-theme="light"] .redefining-text {
+            background: linear-gradient(45deg, #1a1a1a, #333333);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
 </head>
 <body>
     <nav class="glass-nav">
         <div class="nav-container">
-            <a href="/" class="logo">FILMDA.</a>
-            <div class="nav-links">
+            <div class="nav-left">
+                <a href="#" class="logo filmda-text">FILMDA.</a>
+                <div class="beta-badge">
+                    <div class="beta-badge-content">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                        </svg>
+                        <div class="news-ticker-container">
+                            <div class="news-ticker">
+                                <span>Smart Clapper is now in beta</span>
+                                <span>AI Driven Story Writer Coming Soon</span>
+                                <span>World's First Smart Clapper Board on the Way</span>
+                                <span>AI Campus Radio MADHURI Launching Soon</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-right">
                 <a href="#services" class="nav-link">Services</a>
                 <a href="#technology" class="nav-link">Technology</a>
-                <a href="#team" class="nav-link">Team</a>
-                <button class="theme-toggle" aria-label="Toggle theme">
-                    <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="12" cy="12" r="5"/>
-                        <line x1="12" y1="1" x2="12" y2="3"/>
-                        <line x1="12" y1="21" x2="12" y2="23"/>
-                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
-                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-                        <line x1="1" y1="12" x2="3" y2="12"/>
-                        <line x1="21" y1="12" x2="23" y2="12"/>
-                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
-                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
                     </svg>
-                    <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
                     </svg>
                 </button>
             </div>
         </div>
     </nav>
 
-    <section class="hero">
-        <div class="hero-content">
-            <a href="#beta" class="beta-badge">
-                Smart Clapper is now in beta →
-            </a>
-            <h1>
-                <div>Redefining</div>
-                <div class="animate-text"></div>
-            </h1>
-            <p class="hero-description">Experience the future of filmmaking with FILMDA. Our cutting-edge AI platform seamlessly integrates across all production stages - from pre-production to post. Set it up once, and let our intelligent automation transform your creative vision into cinematic excellence.</p>
-        </div>
-    </section>
-
-    <section id="services" class="services">
-        <div class="section-container">
-            <h2 class="section-title">Our Services</h2>
-            <p class="section-subtitle">Comprehensive AI solutions for every stage of film production</p>
-            
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <path d="M15.24 2H8.76C5 2 4 3 4 6.76V17.24C4 21 5 22 8.76 22H15.24C19 22 20 21 20 17.24V6.76C20 3 19 2 15.24 2Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M4.5 9.5H19.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
+    <main>
+        <section class="hero">
+            <div class="floating-images">
+                <img src="assets/images/floating1.png" class="float-img" alt="" loading="lazy" style="--delay: 0s; --x: 10%; --y: 20%;">
+                <img src="assets/images/floating2.png" class="float-img" alt="" loading="lazy" style="--delay: 2s; --x: 70%; --y: 15%;">
+                <img src="assets/images/floating3.png" class="float-img" alt="" loading="lazy" style="--delay: 4s; --x: 25%; --y: 60%;">
+                <img src="assets/images/floating4.png" class="float-img" alt="" loading="lazy" style="--delay: 6s; --x: 80%; --y: 70%;">
+                <img src="assets/images/floating5.png" class="float-img" alt="" loading="lazy" style="--delay: 8s; --x: 40%; --y: 80%;">
+                <img src="assets/images/floating6.png" class="float-img" alt="" loading="lazy" style="--delay: 10s; --x: 60%; --y: 30%;">
+            </div>
+            <div class="hero-content">
+                <h1>
+                    <div class="redefining-text">Redefining</div>
+                    <div class="animated-text-container">
+                        <div class="animated-text">
+                            <span>Storytelling</span>
+                            <span>Cinematography</span>
+                            <span>Visual Effects</span>
+                            <span>Film Making</span>
+                            <span>Digital Cinema</span>
+                        </div>
                     </div>
-                    <h3>Script Analysis</h3>
-                    <p>AI-powered script analysis for pacing, character development, and emotional impact assessment.</p>
+                </h1>
+                <p class="hero-description">
+                    Merging cognitive film theory with AI to revolutionize cinematic storytelling. Join the waitlist for early access.
+                </p>
+                <div class="waitlist-container">
+                    <form class="waitlist-form" id="waitlistForm">
+                        <div class="input-group">
+                            <div class="input-wrapper">
+                                <input 
+                                    type="text" 
+                                    name="name"
+                                    placeholder="Your name" 
+                                    class="waitlist-name-input" 
+                                    required
+                                >
+                            </div>
+                            <div class="input-wrapper">
+                                <input 
+                                    type="email" 
+                                    name="email"
+                                    placeholder="Enter your email" 
+                                    class="waitlist-input" 
+                                    required
+                                >
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <div class="input-wrapper">
+                                <select name="profession" class="waitlist-profession-input" required>
+                                    <option value="">Select your profession</option>
+                                    <option value="director">Film Director</option>
+                                    <option value="producer">Film Producer</option>
+                                    <option value="cinematographer">Cinematographer</option>
+                                    <option value="editor">Film Editor</option>
+                                    <option value="sound">Sound Designer</option>
+                                    <option value="vfx">VFX Artist</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="input-wrapper">
+                                <select name="source" class="waitlist-source-input" required>
+                                    <option value="">How did you hear about us?</option>
+                                    <option value="social">Social Media</option>
+                                    <option value="friend">Friend/Colleague</option>
+                                    <option value="search">Search Engine</option>
+                                    <option value="event">Industry Event</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button type="submit" class="waitlist-button">
+                            Join Waitlist
+                            <span class="waitlist-count">(0)</span>
+                        </button>
+                        <div class="waitlist-success" style="display: none;">Thank you for joining our waitlist! We'll be in touch soon.</div>
+                        <div class="waitlist-error" style="display: none;"></div>
+                    </form>
                 </div>
-
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" stroke-width="1.5"/>
-                            <path d="M8 12L11 15L16 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <div class="hero-cta">
+                    <a href="#services" class="primary-button">
+                        Explore Services
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M5 12h14M12 5l7 7-7 7M6.343 6.343l-.707-.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
-                    </div>
-                    <h3>Shot Optimization</h3>
-                    <p>Real-time camera angle and composition suggestions based on scene context and emotion.</p>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <path d="M2 12H22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                            <path d="M12 2V22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                    </a>
+                    <a href="#technology" class="secondary-button">
+                        Our Technology
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M12 5l7 7-7 7M5 12h16" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
-                    </div>
-                    <h3>Smart Scheduling</h3>
-                    <p>Intelligent production scheduling that optimizes crew availability, location access, and weather conditions.</p>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <path d="M3 9C3 7.89543 3.89543 7 5 7H19C20.1046 7 21 7.89543 21 9V18C21 19.1046 20.1046 20 19 20H5C3.89543 20 3 19.1046 3 18V9Z" stroke="currentColor" stroke-width="1.5"/>
-                            <path d="M7 4L12 7L17 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
-                    <h3>Visual Effects Planning</h3>
-                    <p>Pre-visualization tools and AI-assisted VFX planning for seamless integration of effects.</p>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <path d="M15 5H9M15 8H9M13 11H9M21 14V8C21 5.23858 18.7614 3 16 3H8C5.23858 3 3 5.23858 3 8V16C3 18.7614 5.23858 21 8 21H12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                            <path d="M16 17L18 19L22 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
-                    <h3>Cast Analysis</h3>
-                    <p>Data-driven casting recommendations based on character profiles and actor performance history.</p>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <path d="M21 7V17C21 20 19.5 22 16 22H8C4.5 22 3 20 3 17V7C3 4 4.5 2 8 2H16C19.5 2 21 4 21 7Z" stroke="currentColor" stroke-width="1.5"/>
-                            <path d="M15.5 2V9.86C15.5 10.3 14.98 10.52 14.66 10.23L12.34 8.11C12.15 7.94 11.85 7.94 11.66 8.11L9.34003 10.23C9.02003 10.52 8.5 10.3 8.5 9.86V2H15.5Z" stroke="currentColor" stroke-width="1.5"/>
-                        </svg>
-                    </div>
-                    <h3>Budget Optimization</h3>
-                    <p>AI-driven budget allocation and cost prediction for maximum production value.</p>
+                    </a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="technology" class="technology">
-        <div class="section-container">
-            <h2 class="section-title">Our Technology</h2>
-            <p class="section-subtitle">Cutting-edge AI solutions that transform the filmmaking process</p>
-            
-            <div class="tech-grid">
-                <div class="tech-card">
-                    <div class="tech-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
-                            <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" stroke-width="1.5"/>
-                            <path d="M7.5 12.5L10.5 15.5L16.5 9.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
-                    <h3>Neural Networks</h3>
-                    <p>Advanced deep learning models trained on vast datasets of cinematic content for intelligent decision-making.</p>
-                </div>
-
-                <div class="tech-card">
-                    <div class="tech-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
-                            <path d="M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="1.5"/>
-                            <path d="M12 7V12L15 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
-                    <h3>Real-time Processing</h3>
-                    <p>Instant analysis and feedback during shooting, enabling immediate adjustments and optimal results.</p>
-                </div>
-
-                <div class="tech-card">
-                    <div class="tech-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
-                            <path d="M12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z" stroke="currentColor" stroke-width="1.5"/>
-                            <path d="M3 12H8M16 12H21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                        </svg>
-                    </div>
-                    <h3>Computer Vision</h3>
-                    <p>State-of-the-art visual recognition for scene composition, lighting analysis, and shot optimization.</p>
-                </div>
-
-                <div class="tech-card">
-                    <div class="tech-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
-                            <path d="M15 5H9M15 8H9M13 11H9M21 14V8C21 5.23858 18.7614 3 16 3H8C5.23858 3 3 5.23858 3 8V16C3 18.7614 5.23858 21 8 21H12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                            <path d="M16 17L18 19L22 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
-                    <h3>Natural Language Processing</h3>
-                    <p>Advanced script analysis and emotional context understanding for better storytelling.</p>
-                </div>
-
-                <div class="tech-card">
-                    <div class="tech-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
-                            <path d="M12 3V7M12 17V21M3 12H7M17 12H21M4.93 4.93L7.76 7.76M16.24 16.24L19.07 19.07M4.93 19.07L7.76 16.24M16.24 7.76L19.07 4.93" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                        </svg>
-                    </div>
-                    <h3>Predictive Analytics</h3>
-                    <p>Machine learning algorithms that forecast audience engagement and optimize content impact.</p>
-                </div>
-
-                <div class="tech-card">
-                    <div class="tech-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
-                            <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" stroke-width="1.5"/>
-                            <path d="M12 8V16M8 12H16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                        </svg>
-                    </div>
-                    <h3>Cloud Infrastructure</h3>
-                    <p>Scalable, secure cloud processing for handling complex computations and large media files.</p>
-                </div>
-
-                <div class="tech-card">
-                    <div class="tech-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
-                            <path d="M4 6C4 4.89543 4.89543 4 6 4H18C19.1046 4 20 4.89543 20 6V18C20 19.1046 19.1046 20 18 20H6C4.89543 20 4 19.1046 4 18V6Z" stroke="currentColor" stroke-width="1.5"/>
-                            <path d="M9 12L15 12M12 9L12 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                        </svg>
-                    </div>
-                    <h3>Sound AI</h3>
-                    <p>Advanced audio processing for noise reduction, sound enhancement, and automated audio mixing in post-production.</p>
-                </div>
-
-                <div class="tech-card">
-                    <div class="tech-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
-                            <path d="M12 3V7M12 17V21M3 12H7M17 12H21M4.93 4.93L7.76 7.76M16.24 16.24L19.07 19.07M4.93 19.07L7.76 16.24M16.24 7.76L19.07 4.93" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                        </svg>
-                    </div>
-                    <h3>Color Intelligence</h3>
-                    <p>Smart color grading and matching algorithms that ensure consistent visual aesthetics across scenes.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="team" class="team">
-        <div class="section-container">
-            <h2 class="section-title">Our Team</h2>
-            <p class="section-subtitle">Meet the innovative minds shaping the future of AI-powered filmmaking</p>
-            
-            <div class="team-grid">
-                <div class="team-member">
-                    <div class="member-photo">
-                        <div class="photo-placeholder"></div>
-                    </div>
-                    <div class="member-info">
-                        <h3>Rahulraj P V</h3>
-                        <div class="member-title">Founder</div>
-                        <ul class="member-achievements">
-                            <li>Prospective Creative AI PhD Student</li>
-                            <li>DUK MTech AI</li>
-                            <li>AI R&D Engineer</li>
-                            <li>IIMK R&D Intern</li>
-                        </ul>
-                        <div class="member-links">
-                            <a href="https://linkedin.com" target="_blank" class="social-link">LinkedIn</a>
-                            <a href="https://github.com" target="_blank" class="social-link">GitHub</a>
+        <section id="services" class="services">
+            <div class="section-container">
+                <div class="section-content">
+                    <h2 class="section-title">Our Services</h2>
+                    <p class="section-subtitle description">Comprehensive AI solutions for every stage of film production</p>
+                    
+                    <div class="services-grid">
+                        <div class="service-card">
+                            <div class="card-inner">
+                                <div class="service-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                        <polyline points="14 2 14 8 20 8"></polyline>
+                                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                                        <polyline points="10 9 9 9 8 9"></polyline>
+                                    </svg>
+                                </div>
+                                <h3>Script Analysis</h3>
+                                <p class="description">AI-powered script analysis for pacing, character development, and emotional impact assessment.</p>
+                            </div>
                         </div>
-                    </div>
-                </div>
 
-                <div class="team-member">
-                    <div class="member-photo">
-                        <div class="photo-placeholder"></div>
-                    </div>
-                    <div class="member-info">
-                        <h3>Maharoof K</h3>
-                        <div class="member-title">Co-founder</div>
-                        <ul class="member-achievements">
-                            <li>PhD Student, Chiba University</li>
-                            <li>NIT Trichy Alumni</li>
-                        </ul>
-                        <div class="member-links">
-                            <a href="https://linkedin.com" target="_blank" class="social-link">LinkedIn</a>
-                            <a href="https://github.com" target="_blank" class="social-link">GitHub</a>
+                        <div class="service-card">
+                            <div class="card-inner">
+                                <div class="service-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <line x1="14.31" y1="8" x2="20.05" y2="17.94"></line>
+                                        <line x1="9.69" y1="8" x2="21.17" y2="8"></line>
+                                        <line x1="7.38" y1="12" x2="13.12" y2="2.06"></line>
+                                        <line x1="9.69" y1="16" x2="3.95" y2="6.06"></line>
+                                        <line x1="14.31" y1="16" x2="2.83" y2="16"></line>
+                                        <line x1="16.62" y1="12" x2="10.88" y2="21.94"></line>
+                                    </svg>
+                                </div>
+                                <h3>Shot Optimization</h3>
+                                <p class="description">Real-time camera angle and composition suggestions based on scene context and emotion.</p>
+                            </div>
                         </div>
-                    </div>
-                </div>
 
-                <div class="team-member">
-                    <div class="member-photo">
-                        <div class="photo-placeholder"></div>
-                    </div>
-                    <div class="member-info">
-                        <h3>Akhil Mohanan</h3>
-                        <div class="member-title">Co-founder & Management Lead</div>
-                        <ul class="member-achievements">
-                            <li>Business Strategy Expert</li>
-                            <li>Operations Management</li>
-                            <li>Innovation Leadership</li>
-                        </ul>
-                        <div class="member-links">
-                            <a href="https://linkedin.com" target="_blank" class="social-link">LinkedIn</a>
-                            <a href="https://github.com" target="_blank" class="social-link">GitHub</a>
+                        <div class="service-card">
+                            <div class="card-inner">
+                                <div class="service-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                                    </svg>
+                                </div>
+                                <h3>Smart Scheduling</h3>
+                                <p class="description">Intelligent production scheduling that optimizes crew availability, location access, and weather conditions.</p>
+                            </div>
                         </div>
-                    </div>
-                </div>
 
-                <div class="team-member">
-                    <div class="member-photo">
-                        <div class="photo-placeholder"></div>
-                    </div>
-                    <div class="member-info">
-                        <h3>Jishnu K</h3>
-                        <div class="member-title">Software Engineer</div>
-                        <ul class="member-achievements">
-                            <li>Amazon, Hyderabad</li>
-                            <li>Backend Development</li>
-                            <li>Cloud Architecture</li>
-                        </ul>
-                        <div class="member-links">
-                            <a href="https://linkedin.com" target="_blank" class="social-link">LinkedIn</a>
-                            <a href="https://github.com" target="_blank" class="social-link">GitHub</a>
+                        <div class="service-card">
+                            <div class="card-inner">
+                                <div class="service-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M3 9C3 7.89543 3.89543 7 5 7H19C20.1046 7 21 7.89543 21 9V18C21 19.1046 20.1046 20 19 20H5C3.89543 20 3 19.1046 3 18V9Z" stroke="currentColor" stroke-width="1.5"/>
+                                        <path d="M7 4L12 7L17 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                                <h3>Visual Effects Planning</h3>
+                                <p class="description">Pre-visualization tools and AI-assisted VFX planning for seamless integration of effects.</p>
+                            </div>
                         </div>
-                    </div>
-                </div>
 
-                <div class="team-member">
-                    <div class="member-photo">
-                        <div class="photo-placeholder"></div>
-                    </div>
-                    <div class="member-info">
-                        <h3>Basheer</h3>
-                        <div class="member-title">Edge AI Expert</div>
-                        <ul class="member-achievements">
-                            <li>Edge Computing Specialist</li>
-                            <li>AI Solutions Architect</li>
-                        </ul>
-                        <div class="member-links">
-                            <a href="https://linkedin.com" target="_blank" class="social-link">LinkedIn</a>
-                            <a href="https://github.com" target="_blank" class="social-link">GitHub</a>
+                        <div class="service-card">
+                            <div class="card-inner">
+                                <div class="service-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M15 5H9M15 8H9M13 11H9M21 14V8C21 5.23858 18.7614 3 16 3H8C5.23858 3 3 5.23858 3 8V16C3 18.7614 5.23858 21 8 21H12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                        <path d="M16 17L18 19L22 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                                <h3>Cast Analysis</h3>
+                                <p class="description">Data-driven casting recommendations based on character profiles and actor performance history.</p>
+                            </div>
+                        </div>
+
+                        <div class="service-card">
+                            <div class="card-inner">
+                                <div class="service-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 12H3M21 6H3M21 18H3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                    </svg>
+                                </div>
+                                <h3>Budget Optimization</h3>
+                                <p class="description">AI-driven budget allocation and cost prediction for maximum production value.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <script src="script.js"></script>
+        <section id="technology" class="technology">
+            <div class="section-container">
+                <div class="section-content">
+                    <h2 class="section-title">Our Technology</h2>
+                    <p class="section-subtitle description">Cutting-edge AI solutions powering the future of filmmaking</p>
+                    
+                    <div class="tech-grid">
+                        <div class="tech-card">
+                            <div class="card-inner">
+                                <h3>Neural Networks</h3>
+                                <p class="description">Advanced deep learning models trained on vast datasets of cinematic content for intelligent decision-making.</p>
+                            </div>
+                        </div>
+
+                        <div class="tech-card">
+                            <div class="card-inner">
+                                <h3>Real-time Processing</h3>
+                                <p class="description">Instant analysis and feedback during shooting, enabling immediate adjustments and optimal results.</p>
+                            </div>
+                        </div>
+
+                        <div class="tech-card">
+                            <div class="card-inner">
+                                <h3>Computer Vision</h3>
+                                <p class="description">State-of-the-art visual recognition for scene composition, lighting analysis, and shot optimization.</p>
+                            </div>
+                        </div>
+
+                        <div class="tech-card">
+                            <div class="card-inner">
+                                <h3>Natural Language Processing</h3>
+                                <p class="description">Advanced script analysis and emotional context understanding for better storytelling.</p>
+                            </div>
+                        </div>
+
+                        <div class="tech-card">
+                            <div class="card-inner">
+                                <h3>Predictive Analytics</h3>
+                                <p class="description">Machine learning algorithms that forecast audience engagement and optimize content impact.</p>
+                            </div>
+                        </div>
+
+                        <div class="tech-card">
+                            <div class="card-inner">
+                                <h3>Cloud Infrastructure</h3>
+                                <p class="description">Scalable, secure cloud processing for handling complex computations and large media files.</p>
+                            </div>
+                        </div>
+
+                        <div class="tech-card">
+                            <div class="card-inner">
+                                <h3>Sound AI</h3>
+                                <p class="description">Advanced audio processing for noise reduction, sound enhancement, and automated audio mixing in post-production.</p>
+                            </div>
+                        </div>
+
+                        <div class="tech-card">
+                            <div class="card-inner">
+                                <h3>Color Intelligence</h3>
+                                <p class="description">Smart color grading and matching algorithms that ensure consistent visual aesthetics across scenes.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script type="module" src="js/appwrite-config.js"></script>
+    <script type="module" src="js/waitlist-handler.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // News ticker functionality
+            const newsItems = document.querySelectorAll('.news-ticker span');
+            let currentIndex = 0;
+
+            // Show first item
+            newsItems[0].classList.add('active');
+
+            // Rotate news items
+            setInterval(() => {
+                newsItems[currentIndex].classList.remove('active');
+                currentIndex = (currentIndex + 1) % newsItems.length;
+                newsItems[currentIndex].classList.add('active');
+            }, 5000);
+
+            // Theme toggle functionality
+            const themeToggle = document.getElementById('theme-toggle');
+            const htmlElement = document.documentElement;
+
+            // Check for saved theme preference
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            htmlElement.setAttribute('data-theme', savedTheme);
+
+            themeToggle.addEventListener('click', () => {
+                const currentTheme = htmlElement.getAttribute('data-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                htmlElement.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+            });
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/appwrite@13.0.1"></script>
 </body>
 </html>

@@ -1,8 +1,8 @@
-# FILMDA.AI
+# FILDFA.COM
 
 > Redefining Film making with AI-powered solutions
 
-FILMDA.AI is a cutting-edge platform that revolutionizes the film production process through innovative AI technology. Our platform streamlines every aspect of production, from pre-production planning to post-production workflows.
+FILDFA.COM is a cutting-edge platform that revolutionizes the film production process through innovative AI technology. Our platform streamlines every aspect of production, from pre-production planning to post-production workflows.
 
 ## Features
 
@@ -21,7 +21,7 @@ FILMDA.AI is a cutting-edge platform that revolutionizes the film production pro
 
 ## Live Demo
 
-Visit our website: [FILMDA.AI](https://filmda-ai.netlify.app)
+Visit our website: [FILDFA.COM](https://fildfa.com)
 
 ## Development
 
@@ -29,8 +29,8 @@ To run this project locally:
 
 1. Clone the repository
 ```bash
-git clone https://github.com/iamr7d/FILMDA.AI.git
-cd FILMDA.AI
+git clone https://github.com/iamr7d/FILDFA.COM.git
+cd FILDFA.COM
 ```
 
 2. Open `index.html` in your browser
@@ -45,7 +45,7 @@ MIT License - feel free to use this code for your own projects
 
 ## Contact
 
-For any queries or support, please reach out to us at [support@filmda.ai](mailto:support@filmda.ai)
+For any queries or support, please reach out to us at [support@fildfa.com](mailto:support@fildfa.com)
 
 ---
-Made with ❤️ by FILMDA.AI Team
+Made with ❤️ by FILDFA.COM Team

@@ -91,6 +91,29 @@ const initButtonEffects = () => {
     });
 };
 
+// Theme toggle functionality
+const initThemeToggle = () => {
+    const themeToggle = document.querySelector('.theme-toggle');
+    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    
+    // Get theme from localStorage or system preference
+    const currentTheme = localStorage.getItem('theme') || 
+                        (prefersDarkScheme.matches ? 'dark' : 'light');
+    
+    // Set initial theme
+    document.documentElement.setAttribute('data-theme', currentTheme);
+    
+    // Toggle theme when button is clicked
+    themeToggle.addEventListener('click', () => {
+        const newTheme = document.documentElement.getAttribute('data-theme') === 'light' 
+                        ? 'dark' 
+                        : 'light';
+        
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+    });
+};
+
 // Initialize all effects
 window.addEventListener('DOMContentLoaded', () => {
     createGradientAnimation();
@@ -98,4 +121,5 @@ window.addEventListener('DOMContentLoaded', () => {
     initFadeAnimations();
     initNavbarEffect();
     initButtonEffects();
+    initThemeToggle();
 });
